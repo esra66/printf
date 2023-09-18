@@ -12,11 +12,11 @@ typedef int (*FormatFunction)(va_list);
  * @specifier: char represent the format
  * @function: function handle specifier
  */
-struct FormatSpecifier
+typedef struct FormatSpecifier
 {
 	const char specifier;
 	FormatFunction function;
-};
+} formatspecifier;
 
 int _printf(const char *format, ...);
 int _strlen(char *s);

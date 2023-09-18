@@ -1,7 +1,7 @@
 #include "main.h"
 /**
  * _printf - cuztomied printf function
- * @format: format string
+ * @format: list of arguments
  * Return: number of char been printed
  */
 int _printf(const char *format, ...)
@@ -11,7 +11,7 @@ int _printf(const char *format, ...)
 	unsigned int j = 0;
 	va_list args;
 
-	FormatSpecifier s[] = {
+	formatspecifier s[] = {
 		{'c', _print_char}, {'s', _print_string}, {'d', _print_deci},
 		{'i', _print_int}, {'x', _print_lowhex}, {'X', _print_upperhex},
 		{'o', _print_oct}, {'%', _print_perc}, {'u', _print_unisg},
@@ -27,7 +27,7 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			count++;
 		}
-	}
+	
 	else
 	{
 		i++;
@@ -40,7 +40,7 @@ int _printf(const char *format, ...)
 			}
 		}
 	}
-}
+	}
 	va_end(args);
 	return (count);
 }
