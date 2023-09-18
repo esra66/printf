@@ -18,7 +18,7 @@ int _printf(const char *format, ...)
 	};
 
 	va_start(args, format);
-	if (format == NULL)
+	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
 	for (i = 0 ; format[i] != '\0' ; i++)
 	{
@@ -27,19 +27,19 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			count++;
 		}
-	
-	else
-	{
-		i++;
-		for (j = 0 ; j < sizeof(s) / sizeof(s[0]) ; j++)
+
+		else
 		{
-			if (s[j].specifier == format[i])
+			i++;
+			for (j = 0 ; j < sizeof(s) / sizeof(s[0]) ; j++)
 			{
-				count += s[j].function(args);
-				break;
+				if (s[j].specifier == format[i])
+				{
+					count += s[j].function(args);
+					break;
+				}
 			}
 		}
-	}
 	}
 	va_end(args);
 	return (count);

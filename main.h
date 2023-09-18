@@ -6,6 +6,8 @@
 #include <stdarg.h>
 #include <limits.h>
 
+#define BUFFER_SIZE 1024
+
 typedef int (*FormatFunction)(va_list);
 /**
  * struct FormatSpecifier - define the type of foramt
