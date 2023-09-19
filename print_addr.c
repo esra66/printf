@@ -27,6 +27,7 @@ int _print_addr(va_list args)
 	{
 		_putchar('0');
 		_putchar('x');
+		length += 2;
 
 		for (i = 15; i >= 0; i--)
 		{

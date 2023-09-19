@@ -41,8 +41,8 @@ int main(void)
 	_printf("Unknown:[%r]\n", "alx");
 	printf("Unknown:[%r]\n");
 	_printf("Ro13:[%R]\n", "Helloi");
-	_printf("Address:[%p]\n", addr);
-	printf("Address:[%p]\n", addr);
+	a = _printf("Address:[%p]\n", addr);
+	b = printf("Address:[%p]\n", addr);
 	_printf("%S\n", "Best\nSchool");
 	_printf("%d,%d,%d,%d,%d,%d\n", a, b, c, d, len, len2);
 	return (0);
