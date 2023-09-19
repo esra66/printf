@@ -9,16 +9,16 @@
 int _print_bin(va_list args)
 {
 	int count;
+	int binary[32];
+	int j;
+	int i = 0;
 	int num = va_arg(args, unsigned int);
 
 	if (num == 0)
 	{
 		_putchar('0');
-		return;
+		return (1);
 	}
-
-	int binary[32];
-	int i = 0;
 
 	while (num > 0)
 	{
@@ -27,7 +27,7 @@ int _print_bin(va_list args)
 		i++;
 	}
 
-	for (int j = i - 1; j >= 0; j--)
+	for (j = i - 1; j >= 0; j--)
 	{
 		_putchar('0' + binary[j]);
 	}
