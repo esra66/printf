@@ -16,7 +16,7 @@ int _printf(const char *format, ...)
 		{'i', _print_int}, {'x', _print_lowhex}, {'X', _print_upperhex},
 		{'o', _print_oct}, {'%', _print_perc}, {'u', _print_unisg},
 		{'b', _print_bin}, {'r', _print_rev}, {'R', _print_ro13},
-		{'p', _print_addr}, {'S', _print_s},
+		{'p', _print_addr}, {'S', _print_s}, {'\0', NULL},
 	};
 
 	if (format == NULL)
