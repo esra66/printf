@@ -21,7 +21,7 @@ typedef struct FormatSpecifier
 } formatspecifier;
 
 int _printf(const char *format, ...);
-int _strlen(char *s);
+int _strlen(const char *s);
 int _putchar(char c);
 int _print_char(va_list args);
 int _print_string(va_list args);
@@ -33,5 +33,10 @@ int _print_unisg(va_list args);
 int _print_upperhex(va_list args);
 int _print_perc(va_list args);
 int _print_bin(va_list args);
+int _print_rev(va_list args);
+int _print_ro13(va_list args);
+int _print_addr(va_list args);
+int _print_s(va_list args);
+
 #endif
 

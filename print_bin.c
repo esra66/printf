@@ -30,7 +30,7 @@ int _print_bin(va_list args)
 	for (j = i - 1; j >= 0; j--)
 	{
 		_putchar('0' + binary[j]);
+		count++;
 	}
-	count++;
 	return (count);
 }
