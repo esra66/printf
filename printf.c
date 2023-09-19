@@ -16,9 +16,11 @@ int _printf(const char *format, ...)
 		{'i', _print_int}, {'x', _print_lowhex}, {'X', _print_upperhex},
 		{'o', _print_oct}, {'%', _print_perc}, {'u', _print_unisg},
 		{'b', _print_bin}, {'r', _print_rev}, {'R', _print_ro13},
-		{'p', _print_addr}, {'S', _print_s},
+		{'p', _print_addr}, {'S', _print_s}, {NULL, NULL},
 	};
 
+	if (format == NULL)
+		return (-1);
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))
 		return (-1);
@@ -29,7 +31,6 @@ int _printf(const char *format, ...)
 			_putchar(format[i]);
 			count++;
 		}
-
 		else
 		{
 			i++;
