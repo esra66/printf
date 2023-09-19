@@ -5,32 +5,33 @@
  * Return: count.
  *
  */
-
 int _print_bin(va_list args)
 {
+	unsigned int num = va_arg(args, unsigned int);
 	int count = 0;
-	int binary[32];
-	int j;
-	int i = 0;
-	int num = va_arg(args, unsigned int);
+	int flag = 1;
+	int bit, i;
 
-	if (num == 0)
+	for (i = 31; i >= 0; i--)
+	{
+		bit = (num >> i) & 1;
+
+		if (bit)
+			flag = 0;
+
+		if (!flag || i == 0)
+		{
+			_putchar('0' + bit);
+			count++;
+		}
+	}
+
+	if (count == 0)
 	{
 		_putchar('0');
-		return (1);
+		count = 1;
 	}
 
-	while (num > 0)
-	{
-		binary[i] = num % 2;
-		num = num / 2;
-		i++;
-	}
-
-	for (j = i - 1; j >= 0; j--)
-	{
-		_putchar('0' + binary[j]);
-		count++;
-	}
 	return (count);
+
 }
