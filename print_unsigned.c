@@ -6,32 +6,39 @@
  */
 int _print_unisg(va_list args)
 {
-	unsigned int num = va_arg(args, unsigned int);
-	int count = 0;
+	unsigned int n = va_arg(args, unsigned int);
+	int num, last = n % 10, digit, exp = 1;
+	int  i = 1;
 
-	if (num == 0)
-	{
-		_putchar('0');
-		count++;
-	} else
-	{
-		unsigned int rev = 0;
-		unsigned int digit;
+	n = n / 10;
+	num = n;
 
-		while (num > 0)
+	if (last < 0)
+	{
+		_putchar('-');
+		num = -num;
+		n = -n;
+		last = -last;
+		i++;
+	}
+	if (num > 0)
+	{
+		while (num / 10 != 0)
 		{
-			digit = num % 10;
-			rev = rev * 10 + digit;
-			num /= 10;
+			exp = exp * 10;
+			num = num / 10;
 		}
-		while (rev > 0)
+		num = n;
+		while (exp > 0)
 		{
-			digit = rev % 10;
-			_putchar('0' + digit);
-			rev  /= 10;
-			count++;
+			digit = num / exp;
+			_putchar(digit + '0');
+			num = num - (digit * exp);
+			exp = exp / 10;
+			i++;
 		}
 	}
+	_putchar(last + '0');
 
-	return (count);
+	return (i);
 }

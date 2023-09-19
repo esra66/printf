@@ -32,5 +32,6 @@ int _print_lowhex(va_list args);
 int _print_unisg(va_list args);
 int _print_upperhex(va_list args);
 int _print_perc(va_list args);
+int _print_bin(va_list args);
 #endif
 

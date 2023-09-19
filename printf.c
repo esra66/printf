@@ -15,6 +15,7 @@ int _printf(const char *format, ...)
 		{'c', _print_char}, {'s', _print_string}, {'d', _print_deci},
 		{'i', _print_int}, {'x', _print_lowhex}, {'X', _print_upperhex},
 		{'o', _print_oct}, {'%', _print_perc}, {'u', _print_unisg},
+		{'b', _print_bin},
 	};
 
 	va_start(args, format);
