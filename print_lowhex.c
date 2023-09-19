@@ -14,6 +14,11 @@ int _print_lowhex(va_list args)
 	char hex[100];
 	int i = 0;
 
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	do {
 		int remainder = n % 16;
 

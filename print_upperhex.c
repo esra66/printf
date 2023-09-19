@@ -7,13 +7,17 @@
 
 int _print_upperhex(va_list args)
 {
-
 	unsigned int n = va_arg(args, unsigned int);
 	char hex[100];
 	int i = 0;
 	int remainder;
 	int count, j;
 
+	if (n == 0)
+	{
+		_putchar('0');
+		return (1);
+	}
 	do {
 		remainder = n % 16;
 		hex[i++] = (remainder < 10) ? (remainder + '0') : (remainder - 10 + 'A');
