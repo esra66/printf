@@ -7,26 +7,31 @@
 
 int _print_s(va_list args)
 {
-	const char *o = va_arg(args, const char*);
-	int w = 0;
+	const char *str = va_arg(args, const char*);
+	int length = 0;
 
-	while (o[w] != '\0')
+	while (*str != '\0')
 	{
-		if (o[w] < 32 || o[w] >= 127)
+		if (*str < 32 || *str >= 127)
 		{
-			printf("\\x%02X", (unsigned char)o[w]);
+			_putchar('\\');
+			_putchar('x');
+			_putchar("0123456789ABCDEF"[(*str >> 4) & 0xF]);
+			_putchar("0123456789ABCDEF"[*str & 0xF]);
+			length += 4;
 		}
-		else if (o[w] == '\n')
+		else if (*str == '\n')
 		{
-			putchar(' ');
+			_putchar(' ');
+			length++;
 		}
 		else
 		{
-			putchar(o[w]);
+			_putchar(*str);
+			length++;
 		}
-		w++;
+		str++;
 	}
 
-	return (w);
+	return (length);
 }
-
